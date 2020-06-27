@@ -36,6 +36,7 @@ public class Difficulty_Panel extends JPanel{
     
     public Difficulty_Panel(){
         label = new JLabel( "Medium Computer");
+
         // Panel size
         Dimension dim = getPreferredSize();
         dim.width = 200;
