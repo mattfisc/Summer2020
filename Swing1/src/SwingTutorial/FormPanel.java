@@ -22,7 +22,9 @@ public class FormPanel extends JPanel{
     private JTextField nameField;
     private JTextField occupationField;
     private JButton okBtn;
+
     private FormListener formListener;
+
     private JList ageList;
     private JComboBox empCombo;
             

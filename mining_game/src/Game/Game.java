@@ -34,7 +34,7 @@ public class Game extends JFrame{
     
     public Game(){
         this.createWindow();
-        
+
         
         // ADD STATUS
         content.add(status,BorderLayout.NORTH);
@@ -45,7 +45,7 @@ public class Game extends JFrame{
         status.setBackground(Color.BLUE);// set background color yellow
         
         // PANEL DETAILS
-        p.setLayout(new GridLayout(20,20,1,1));// grid layout
+        p.setLayout(new GridLayout(20,20));// grid layout
         p.setBackground(Color.black);// set background color black
         
         // ADD PANEL
@@ -54,16 +54,16 @@ public class Game extends JFrame{
         // ADD JLABEL TO PANEL
         for(int row = 0; row < 20; row++){
             for(int col = 0; col < 20; col++){
-                board[row][col] = new JButton("col"+col);
+                board[row][col] = new JButton();
                 board[row][col].setOpaque(true);// set text visible
-                board[row][col].setBackground(Color.white);//set background color
+
                 if(m.map[row][col].getRock() == true){
-                    board[row][col].setBackground(Color.white);//set background color
+                    board[row][col].setBackground(Color.black);//set background color
                 }
-                else if(m.elevator.getY() == row && m.elevator.getX() == col){
-                    board[row][col].setBackground(Color.blue);//set background color
+                else if(m.food.getY() == row && m.food.getX() == col){
+                    board[row][col].setBackground(Color.red);//set background color
                 }else{
-                    // ELEVATOR
+                    // FOOD
                     board[row][col].setBackground(Color.red);//set background color
                 }
                 // set label font
@@ -73,21 +73,14 @@ public class Game extends JFrame{
                 
             }
         }
-        
+        requestFocusInWindow();
+        pack();
     }
     
     public static void main(String[] args) {
         Game g = new Game();
         
         Robot r2 = new Robot();
-        
-        
-        for(int i = 0;i < 400; i++){
-            g.mine_closest();
-            
-        }
-
-            //r2.setTime_worked(m.time_worked);
 
     }
     
@@ -96,7 +89,7 @@ public class Game extends JFrame{
     {
         // create program window
         this.setVisible(true);// set window visible
-        //this.setSize(1800,1000);// set window size
+        this.setPreferredSize(new Dimension(400,400));
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // set window will close on exiting button
