@@ -1,26 +1,24 @@
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.LinkedList;
+// Abstract class
+interface Animal {
+    // Abstract method (does not have a body)
+    public abstract void animalSound();
+    // Regular method
+    public void sleep();
+}
 
-public class App {
+// Subclass (inherit from Animal)
+class Pig implements Animal {
+    public void animalSound() {
+        // The body of animalSound() is provided here
+        System.out.println("The pig says: wee wee");
+    }
 
+}
+
+class App {
     public static void main(String[] args) {
-        LocalDate n = LocalDate.now();
-        System.out.println(n);
-
-        LocalTime time = LocalTime.now();
-        System.out.println(time);
-
-        LocalDateTime datetime = LocalDateTime.now();
-        System.out.println(datetime);
-
-        DateTimeFormatter formatTimeObj = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm::ss");
-
-        String formattedDate = datetime.format(formatTimeObj);
-        System.out.println("after format " + formattedDate);
-
+        Pig myPig = new Pig(); // Create a Pig object
+        myPig.animalSound();
+        myPig.sleep();
     }
 }
