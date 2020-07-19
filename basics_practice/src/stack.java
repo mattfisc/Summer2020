@@ -1,7 +1,11 @@
-public class stack {
+public class Stack {
+    int x;
+
+    public Stack(){
+        x = 1;
+    }
     public static void main(String[] args) {
-        stack s = new stack();
-        s.add();
+        System.out.println("helloworld");
 
     }
 }
